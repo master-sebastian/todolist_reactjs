@@ -5,11 +5,11 @@ const dataset_test = [
         completed: false
     },
     {
-        text: "Nota 1",
+        text: "Nota 2",
         completed: false
     },
     {
-        text: "Nota 1",
+        text: "Nota 3",
         completed: false
     }
 ]

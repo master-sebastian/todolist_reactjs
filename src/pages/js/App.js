@@ -13,22 +13,27 @@ function App() {
   const [ search, setSearch ] = React.useState("")
   const [ listTodoList, setListTodoList ] = React.useState(dataset_test)
 
-  console.log(dataset_test)
+  
   return (<>
     <TodoCounter 
       text="Has completado @number_items_completed@ de @number_items@"
       numberItemsCompleted="3"
       numberItems="10"
     />
-    <TodoSearch/>
+    <TodoSearch 
+      search={search} 
+      setSearchObj={ setSearch }
+    />
     <TodoList>
       {
-        listTodoList.map((element, index) => {
-          return (<TodoItem key={index} text={element.text}/>)
+        listTodoList.map((element, index) => {          
+          if(search == null || search == "" || (typeof search == "string" && element.text.indexOf(search) > -1)){
+            return (<TodoItem key={index} text={element.text} />)
+          }
+          return (<></>)
         })
       }
     </TodoList>
-    <br></br>
     <TodoButton text="+"/>
   </>);
 }

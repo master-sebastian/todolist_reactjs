@@ -1,5 +1,5 @@
 
-dataset_test = [
+const dataset_test = [
     {
         text: "Nota 1",
         completed: false

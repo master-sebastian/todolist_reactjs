@@ -1,5 +1,7 @@
-function TodoList(){
-    return (<></>)   
+function TodoList(props){
+    return (<>
+        { props.children}
+    </>)   
 }
 
 

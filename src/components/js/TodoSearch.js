@@ -1,5 +1,7 @@
 function TodoSearch(){
-    return (<></>)   
+    return (<>
+        <input type="text"/>
+    </>)   
 }
 
 

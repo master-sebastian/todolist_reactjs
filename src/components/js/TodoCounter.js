@@ -1,20 +1,28 @@
+import React from "react"
+import { AppIUContext } from "../../pages/js/AppIUContext"
+
 function TodoCounter(props){
+    const {
+        listTodoList,
+        search
+      } = React.useContext(AppIUContext)
+
     return (<><h1>
         Has completado {
-            props.parentComponent.listTodoList.filter( 
+            listTodoList.filter( 
                 (item) => 
                 (
                     (
-                        props.parentComponent.search == "" || 
+                        search == "" || 
                         (
                             (
-                                typeof props.parentComponent.search == "string" && 
-                                item.text.indexOf(props.parentComponent.search) > -1
+                                typeof search == "string" && 
+                                item.text.indexOf(search) > -1
                             )
                         ) 
                     )&&  item.completed == true 
                 )).length
-        } de {props.parentComponent.listTodoList.length}
+        } de {listTodoList.length}
     </h1></>)
 }
 

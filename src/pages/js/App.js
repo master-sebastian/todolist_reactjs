@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppIUContext } from './AppIUContext';
 import { TodoButton } from '../../components/js/TodoButton';
 import { TodoCounter } from '../../components/js/TodoCounter';
 import { TodoFormNewItem } from '../../components/js/TodoFormNewItem';
@@ -9,40 +10,23 @@ import { TodoSearch } from '../../components/js/TodoSearch';
 import './../css/App.css';
 
 function App() {
-
-  const [ id, setId ] = React.useState(4)
-  const [ search, setSearch ] = React.useState("")
-  const [ listTodoListOrginal, setListTodoListOrginal ] = React.useState([])
-  const [ listTodoList, setListTodoList ] = React.useState([])
-  const [ displayNewItem, setDisplayNewItem ] = React.useState(false)
-
-  const state = {
-    search: search,
-    setSearch: setSearch,
-    listTodoListOrginal: listTodoListOrginal,
-    setListTodoListOrginal : setListTodoListOrginal,
-    listTodoList: listTodoList,
-    setListTodoList: setListTodoList,
-    displayNewItem: displayNewItem,
-    setDisplayNewItem: setDisplayNewItem,
-    id: id,
-    setId: setId
-  }
-  
+  /*
+  const {
+    //displayNewItem,
+    //changeDisplayNewItem,
+    //listTodoList
+  }*/
+  let {o} = React.useContext(AppIUContext)
+  console.log(AppIUContext)
   return (<>
-    <TodoCounter 
-      text="Has completado @number_items_completed@ de @number_items@"
-      parentComponent={ state }
-    />
-    <TodoSearch 
-      parentComponent={ state }
-    />
-    <TodoButton text="+" onClick={ ()=> {
-      setDisplayNewItem(!displayNewItem)
-    }}/>
+  {
+    /*
+    <TodoCounter />
+    <TodoSearch />
+    <TodoButton text="+" onClick={ changeDisplayNewItem }/>
     
     {
-      (!displayNewItem)?<></>:<TodoFormNewItem parentComponent={ state }/>
+      (!displayNewItem)?<></>:<TodoFormNewItem/>
     }
     <br></br>
     <TodoList>
@@ -53,13 +37,11 @@ function App() {
                     id={element.id} 
                     text={element.text} 
                     completed={element.completed}
-                    parentComponent={ state }
                   />)
         })
       }
     </TodoList>
-    
-    <></>
+    */}
   </>);
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const AppIUContext = React.createContext()
+const AppIUContext = React.createContext();
 
 
 function AppIUContextProvider (props) {
@@ -12,7 +12,7 @@ function AppIUContextProvider (props) {
     const [ listTodoList, setListTodoList ] = React.useState([])
     const [ displayNewItem, setDisplayNewItem ] = React.useState(false)
     const [ text, setText ] = React.useState("")
-/*
+
     const changeDisplayNewItem = () => {
         setDisplayNewItem(!displayNewItem)
     }
@@ -29,14 +29,18 @@ function AppIUContextProvider (props) {
         )
     }
 
-    const updateFilter = (listTodoListOrginal) => {
+    const updateFilter = (listTodoListOrginal, search_ = null) => {
+
+        if(search_ === null){
+            search_ = search
+        }
 
         setListTodoListOrginal(listTodoListOrginal)
 
         setListTodoList(listTodoListOrginal.filter(
             item => 
                 (
-                    search == null || search == "" || (typeof search == "string" && item.text.indexOf(search) > -1)
+                    search_ == null || search_ == "" || (typeof search_ == "string" && item.text.indexOf(search_) > -1)
                 )
             )
         )
@@ -44,11 +48,11 @@ function AppIUContextProvider (props) {
 
     const onClickDeleteObject = (event, id) => {
         
-        const listTodoListOrginal = listTodoListOrginal.filter(
+        const listTodoListOrginal_ = listTodoListOrginal.filter(
             item => ( id != item.id )
         )
 
-        updateFilter(listTodoListOrginal)
+        updateFilter(listTodoListOrginal_)
         
     }
 
@@ -82,20 +86,22 @@ function AppIUContextProvider (props) {
         
         setId(id + 1)
         
-        updateFilter(listTodoListOrginal)
+        updateFilter(listTodoListOrginal, "")
+        
+        setSearch("")
         
         setText("")
-
+        
         setDisplayNewItem(!displayNewItem)
     }
-*/
+
     const state = {
         search,
         listTodoListOrginal,
         listTodoList,
         displayNewItem,
         id,
-        text/*,
+        text,
         setText,
         setSearch,
         setListTodoListOrginal,
@@ -107,14 +113,14 @@ function AppIUContextProvider (props) {
         onClickDeleteObject,
         onChangeEventCheck,
         onChangeTextItem,
-        addElement*/
+        addElement
     }
 
-    return (<AppIUContext.Provider value={ {o:12} }>
+    return (<AppIUContext.Provider value={ state }>
 
         { props.children }
     
     </AppIUContext.Provider>)
 }
 
-export { AppIUContext }
+export { AppIUContext, AppIUContextProvider }

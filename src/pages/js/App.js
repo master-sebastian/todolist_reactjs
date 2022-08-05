@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppIUContext } from './AppIUContext';
+import  { AppIUContext } from './AppIUContext';
 import { TodoButton } from '../../components/js/TodoButton';
 import { TodoCounter } from '../../components/js/TodoCounter';
 import { TodoFormNewItem } from '../../components/js/TodoFormNewItem';
@@ -10,17 +10,14 @@ import { TodoSearch } from '../../components/js/TodoSearch';
 import './../css/App.css';
 
 function App() {
-  /*
+  
   const {
-    //displayNewItem,
-    //changeDisplayNewItem,
-    //listTodoList
-  }*/
-  let {o} = React.useContext(AppIUContext)
-  console.log(AppIUContext)
+    displayNewItem,
+    changeDisplayNewItem,
+    listTodoList
+   } = React.useContext(AppIUContext)
+  console.log(displayNewItem)
   return (<>
-  {
-    /*
     <TodoCounter />
     <TodoSearch />
     <TodoButton text="+" onClick={ changeDisplayNewItem }/>
@@ -41,7 +38,6 @@ function App() {
         })
       }
     </TodoList>
-    */}
   </>);
 }
 

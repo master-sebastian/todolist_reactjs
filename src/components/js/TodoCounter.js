@@ -20,7 +20,7 @@ function TodoCounter(props){
                                 item.text.indexOf(search) > -1
                             )
                         ) 
-                    )&&  item.completed == true 
+                    ) &&  item.completed == true 
                 )).length
         } de {listTodoList.length}
     </h1></>)

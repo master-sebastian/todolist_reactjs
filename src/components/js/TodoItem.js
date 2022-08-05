@@ -11,9 +11,9 @@ function TodoItem(props){
     const [ id, setId ] = React.useState(props.id)
 
     return (<>
-        <input type="checkbox" checked={check} onChange={(event) => { onChangeEventCheck(event, id) } }/>
+        <input type="checkbox" checked={check} onChange={(event) => { onChangeEventCheck(event, id, setCheck) } }/>
         <h3>{props.text}</h3>
-        <button type="button" onClick={ (event) => { onClickDeleteObject(event, id, setCheck) } }>X</button>
+        <button type="button" onClick={ (event) => { onClickDeleteObject(event, id) } }>X</button>
     </>)   
 }
 

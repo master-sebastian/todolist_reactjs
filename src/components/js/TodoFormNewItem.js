@@ -20,7 +20,7 @@ function TodoFormNewItem(props){
                 <textarea name="textarea" value={ text } rows="10" className="form-control" onChange={ onChangeTextItem }></textarea>
             </div>
             <div className="col-2 mb-3 text-center">
-                <TodoButton onClick={ addElement } text="✖️ Agregar" classNameButton="btn btn-primary"/>
+                <TodoButton onClick={ addElement } text="+ Agregar" classNameButton="btn btn-primary"/>
             </div>
         </div>
         <hr></hr>

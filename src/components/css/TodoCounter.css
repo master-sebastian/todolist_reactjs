@@ -1,7 +1,5 @@
 .TodoCounter__extend_header {
     padding: 15px;
     margin: 10px 0px;
-
-    border-top: 8px solid rgb(4, 115, 130);
-    border-bottom: 8px solid rgb(4, 115, 130);
+    background-color: rgb(4, 115, 130) !important;
 }

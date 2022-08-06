@@ -7,10 +7,16 @@
     margin-top: 10%;
     background-color: #f8f8f8;
     padding: 10px 20px;
+    border-top: 8px solid rgb(4, 115, 130);
+    border-bottom: 8px solid rgb(4, 115, 130);
 }
 
 @media (max-width: 800px) {
     .TodoFormNewItem__extend_textarea{
         width: 83.33333333% !important;
     }
+}
+
+.TodoFormNewItem__Background_Header{
+    background-color: rgb(4, 115, 130);
 }

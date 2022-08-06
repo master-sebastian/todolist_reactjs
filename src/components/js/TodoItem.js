@@ -18,7 +18,7 @@ function TodoItem(props){
     return (<>
         <div className="row">
             <div className="col-1 mb-3">
-                <input type="checkbox" checked={check} onChange={(event) => { onChangeEventCheck(event, id, setCheck) } }/>
+                <input type="checkbox" checked={check} className="large" onChange={(event) => { onChangeEventCheck(event, id, setCheck) } }/>
             </div>
             <div className="col-6 mb-3 TodoItem__extend">
                 <p style={completed}>{props.text}</p>

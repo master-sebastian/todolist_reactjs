@@ -11,7 +11,7 @@ function TodoFormNewItem(props){
       } = React.useContext(AppIUContext)
     return (<>
         <div className="TodoFormNewItem__Background">
-            <div className="text-center text-white bg-violet TodoFormNewItem__extend_header">
+            <div className="text-center text-white TodoFormNewItem__Background_Header TodoFormNewItem__extend_header">
                 <h3>
                     + Nuevo item
                 </h3>

@@ -17,10 +17,12 @@ Despues de esto para arrancar el proyecto es con
 npm start
 </code></pre>
 
-![localhost_3000_ (1)](https://user-images.githubusercontent.com/44445339/183234159-b957e916-670b-4c36-b637-288ccd3abcb9.png)
+![localhost_3000_todolist_reactjs](https://user-images.githubusercontent.com/44445339/183241784-110f6577-7449-4e33-8786-11398a75f743.png)
+
+
 
 Cuando se haga clic en el boton + Nuevo item
 
-![master-sebastian github io_todolist_reactjs_](https://user-images.githubusercontent.com/44445339/183239851-8e03a402-a81a-4d13-aea0-182485e30e80.png)
+![master-sebastian github io_todolist_reactjs_ (1)](https://user-images.githubusercontent.com/44445339/183241768-402881c4-18c1-43e1-9e78-4d151e736bc6.png)
 
 Es de uso practico espero que les guste 👌, nunca se para de aprender cosas nuevas cada dia

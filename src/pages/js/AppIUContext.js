@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocalStorage } from "../../lib/Customs/useLocalStorage";
 import { capitalizarPrimeraLetra, getDateSystem } from "../../lib/js/string_t";
 
 
@@ -13,7 +14,9 @@ function AppIUContextProvider (props) {
     const [ listTodoList, setListTodoList ] = React.useState([])
     const [ displayNewItem, setDisplayNewItem ] = React.useState(false)
     const [ text, setText ] = React.useState("")
-
+    
+    const { localStorageResource, updateLocalStorageResource } = useLocalStorage("data_v1_local",[])
+    
     const changeDisplayNewItem = () => {
         setDisplayNewItem(!displayNewItem)
     }
@@ -45,6 +48,8 @@ function AppIUContextProvider (props) {
                 )
             )
         )
+
+        updateLocalStorageResource(listTodoListOrginal)
     }
 
     const onClickDeleteObject = (event, id) => {
@@ -109,6 +114,7 @@ function AppIUContextProvider (props) {
         displayNewItem,
         id,
         text,
+        localStorageResource,
         setText,
         setSearch,
         setListTodoListOrginal,
@@ -120,7 +126,8 @@ function AppIUContextProvider (props) {
         onClickDeleteObject,
         onChangeEventCheck,
         onChangeTextItem,
-        addElement
+        addElement,
+        updateLocalStorageResource
     }
 
     return (<AppIUContext.Provider value={ state }>

@@ -1,3 +1,7 @@
+.TodoSearch__remove_padding_row{
+    padding: 0;
+    margin: 0;
+}
 
 @media (max-width: 1200px) {
     .TodoSearch__config_text_search{

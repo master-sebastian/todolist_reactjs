@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import  { AppIUContext } from './AppIUContext';
 
 import { TodoCounter } from '../../components/js/TodoCounter';
@@ -13,8 +13,17 @@ function App() {
   
   const {
     displayNewItem,
-    listTodoList
+    listTodoList,
+    localStorageResource,
+    setListTodoList,
+    setListTodoListOrginal
    } = React.useContext(AppIUContext)
+
+  useEffect(()=>{
+    setListTodoList(localStorageResource)
+    setListTodoListOrginal(localStorageResource)
+  },[])
+  
   return (<>
     <div className='container'>
       <div className='row'>

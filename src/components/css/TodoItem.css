@@ -1,0 +1,12 @@
+@media (max-width: 1200px) {
+    .TodoItem__extend{
+        width: 50.66666667% !important;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .TodoItem__extend{
+        width: 70.66666667% !important;
+    }
+}

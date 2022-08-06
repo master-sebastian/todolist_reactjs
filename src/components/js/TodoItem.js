@@ -1,5 +1,6 @@
 import React from "react"
 import { AppIUContext } from "../../pages/js/AppIUContext"
+import './../css/TodoItem.css'
 function TodoItem(props){
     const {
         onChangeEventCheck,
@@ -19,11 +20,11 @@ function TodoItem(props){
             <div className="col-1 mb-3">
                 <input type="checkbox" checked={check} onChange={(event) => { onChangeEventCheck(event, id, setCheck) } }/>
             </div>
-            <div className="col-6 mb-3">
-                <h3 style={completed}>{props.text}</h3>
+            <div className="col-6 mb-3 TodoItem__extend">
+                <p style={completed}>{props.text}</p>
             </div>
-            <div className="col-2 mb-3">
-                <h5 style={completed}>{props.insertRegister}</h5>
+            <div className="col-2 mb-3 TodoItem__extend">
+                <p style={completed}>{props.insertRegister}</p>
             </div>
             <div className="col-1 mb-3 text-center">
                 <button type="button" onClick={ (event) => { onClickDeleteObject(event, id) } } className="btn btn-danger" >X</button>

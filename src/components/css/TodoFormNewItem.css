@@ -9,11 +9,6 @@
     padding: 10px 20px;
 }
 
-.TodoFormNewItem__Background > hr{
-
-}
-
-
 @media (max-width: 800px) {
     .TodoFormNewItem__extend_textarea{
         width: 83.33333333% !important;

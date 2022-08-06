@@ -34,9 +34,9 @@ function App() {
           <hr></hr>
           <TodoList>
             {
-              listTodoList.map((element) => {
+              listTodoList.map((element, index) => {
                 return (<TodoItem 
-                          key={element.id} 
+                          key={element.id}
                           id={element.id} 
                           text={element.text} 
                           completed={element.completed}

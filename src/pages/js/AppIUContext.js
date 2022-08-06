@@ -8,7 +8,7 @@ const AppIUContext = React.createContext();
 
 function AppIUContextProvider (props) {
 
-    const [ id, setId ] = React.useState(0)
+    //const [ id, setId ] = React.useState()
     const [ search, setSearch ] = React.useState("")
     const [ listTodoListOrginal, setListTodoListOrginal ] = React.useState([])
     const [ listTodoList, setListTodoList ] = React.useState([])
@@ -16,6 +16,7 @@ function AppIUContextProvider (props) {
     const [ text, setText ] = React.useState("")
     
     const { localStorageResource, updateLocalStorageResource } = useLocalStorage("data_v1_local",[])
+    const { localStorageResource: id, updateLocalStorageResource: setId } = useLocalStorage("data_2_v1_local", 0)
     
     const changeDisplayNewItem = () => {
         setDisplayNewItem(!displayNewItem)
@@ -24,7 +25,7 @@ function AppIUContextProvider (props) {
     const onChangeEventSearch = (event) => {
         const _search = event.target.value
         setSearch(event.target.value)
-        setListTodoList(listTodoListOrginal.filter(
+        setListTodoList([...listTodoListOrginal].map((element) => ({...element})).filter(
             item => 
                 (
                     _search == null || _search == "" || (typeof _search == "string" && item.text.toLocaleLowerCase().indexOf(_search.toLocaleLowerCase()) > -1)
@@ -39,22 +40,23 @@ function AppIUContextProvider (props) {
             search_ = search
         }
 
-        setListTodoListOrginal(listTodoListOrginal)
-
-        setListTodoList(listTodoListOrginal.filter(
+        
+        setListTodoList([...listTodoListOrginal].map((element) => ({...element})).filter(
             item => 
                 (
                     search_ == null || search_ == "" || (typeof search_ == "string" && item.text.toLocaleLowerCase().indexOf(search_.toLocaleLowerCase()) > -1)
                 )
             )
         )
-
+        
         updateLocalStorageResource(listTodoListOrginal)
+        
+        setListTodoListOrginal(listTodoListOrginal)
     }
 
     const onClickDeleteObject = (event, id) => {
         
-        const listTodoListOrginal_ = listTodoListOrginal.filter(
+        const listTodoListOrginal_ = [...listTodoListOrginal].map((element) => ({...element})).filter(
             item => ( id != item.id )
         )
 
@@ -65,15 +67,17 @@ function AppIUContextProvider (props) {
     const onChangeEventCheck = (event, id, setCheck) => {
         
         const change = event.target.checked
-
-        for (let index = 0; index < listTodoListOrginal.length; index++) {
-            if(id === listTodoListOrginal[index].id){
-                listTodoListOrginal[index].completed = change;
+        
+        const listTodoListOrginal_ = [...listTodoListOrginal].map((element) => ({...element}))
+        
+        for (let index = 0; index < listTodoListOrginal_.length; index++) {
+            if(id === listTodoListOrginal_[index].id){
+                listTodoListOrginal_[index].completed = change;
                 setCheck(change)
             }            
         }
 
-        updateFilter(listTodoListOrginal)
+        updateFilter(listTodoListOrginal_)
 
     }
 
@@ -86,7 +90,10 @@ function AppIUContextProvider (props) {
         
           
         if(text != "" && text != null && text.split(" ").join("").split("\n").join("") != ""){
-            listTodoListOrginal.unshift({
+            
+            const listTodoListOrginal_ = [...listTodoListOrginal].map((element) => ({...element}))
+            
+            listTodoListOrginal_.unshift({
                 id: id + 1, 
                 text: capitalizarPrimeraLetra(text.trim()), 
                 completed: false,
@@ -95,13 +102,14 @@ function AppIUContextProvider (props) {
             
             setId(id + 1)
             
-            updateFilter(listTodoListOrginal, "")
+            updateFilter(listTodoListOrginal_, "")
             
             setSearch("")
             
             setText("")
             
             setDisplayNewItem(!displayNewItem)
+
         }else{
             alert("No puede agragar el nuevo item sin texto ❌")
         }

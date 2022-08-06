@@ -1,6 +1,5 @@
 import React, { useEffect} from 'react';
 import  { AppIUContext } from './AppIUContext';
-
 import { TodoCounter } from '../../components/js/TodoCounter';
 import { TodoFormNewItem } from '../../components/js/TodoFormNewItem';
 import { TodoItem } from '../../components/js/TodoItem';
@@ -8,6 +7,7 @@ import { TodoList } from '../../components/js/TodoList';
 import { TodoSearch } from '../../components/js/TodoSearch';
 
 import './../css/App.css';
+import { Modal } from '../../components/js/Model';
 
 function App() {
   
@@ -30,13 +30,8 @@ function App() {
         <div className='offset-2 col-8'>
           <TodoCounter />
           <TodoSearch /> 
-          {
-            (!displayNewItem)?<></>:<TodoFormNewItem/>
-          }
-
-          {
-            !displayNewItem && <hr></hr>
-          }
+          
+          <hr></hr>
           <TodoList>
             {
               listTodoList.map((element) => {
@@ -50,6 +45,17 @@ function App() {
               })
             }
           </TodoList>
+          {
+            (displayNewItem) && (
+            <Modal>
+              <div className='container'>
+                <div className='offset-2 col-8'>
+                  <TodoFormNewItem/>
+                </div>
+              </div>
+            </Modal>
+            )
+          }
         </div>
       </div>
     </div>

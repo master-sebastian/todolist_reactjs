@@ -27,7 +27,7 @@ function AppIUContextProvider (props) {
         setListTodoList(listTodoListOrginal.filter(
             item => 
                 (
-                    _search == null || _search == "" || (typeof _search == "string" && item.text.indexOf(_search) > -1)
+                    _search == null || _search == "" || (typeof _search == "string" && item.text.toLocaleLowerCase().indexOf(_search.toLocaleLowerCase()) > -1)
                 )
             )
         )
@@ -44,7 +44,7 @@ function AppIUContextProvider (props) {
         setListTodoList(listTodoListOrginal.filter(
             item => 
                 (
-                    search_ == null || search_ == "" || (typeof search_ == "string" && item.text.indexOf(search_) > -1)
+                    search_ == null || search_ == "" || (typeof search_ == "string" && item.text.toLocaleLowerCase().indexOf(search_.toLocaleLowerCase()) > -1)
                 )
             )
         )

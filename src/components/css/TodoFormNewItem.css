@@ -2,3 +2,20 @@
     padding: 15px;
     margin: 10px 0px;
 }
+
+.TodoFormNewItem__Background{
+    margin-top: 10%;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+}
+
+.TodoFormNewItem__Background > hr{
+
+}
+
+
+@media (max-width: 800px) {
+    .TodoFormNewItem__extend_textarea{
+        width: 83.33333333% !important;
+    }
+}

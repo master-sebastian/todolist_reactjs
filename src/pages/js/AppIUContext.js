@@ -1,4 +1,5 @@
 import React from "react";
+import { capitalizarPrimeraLetra, getDateSystem } from "../../lib/js/string_t";
 
 
 const AppIUContext = React.createContext();
@@ -78,21 +79,27 @@ function AppIUContextProvider (props) {
 
     const addElement = (event) => {
         
-        listTodoListOrginal.unshift({
-            id: id + 1, 
-            text, 
-            completed: false 
-        })
-        
-        setId(id + 1)
-        
-        updateFilter(listTodoListOrginal, "")
-        
-        setSearch("")
-        
-        setText("")
-        
-        setDisplayNewItem(!displayNewItem)
+          
+        if(text != "" && text != null && text.split(" ").join("").split("\n").join("") != ""){
+            listTodoListOrginal.unshift({
+                id: id + 1, 
+                text: capitalizarPrimeraLetra(text.trim()), 
+                completed: false,
+                insert_register: getDateSystem()
+            })
+            
+            setId(id + 1)
+            
+            updateFilter(listTodoListOrginal, "")
+            
+            setSearch("")
+            
+            setText("")
+            
+            setDisplayNewItem(!displayNewItem)
+        }else{
+            alert("No puede agragar el nuevo item sin texto ❌")
+        }
     }
 
     const state = {

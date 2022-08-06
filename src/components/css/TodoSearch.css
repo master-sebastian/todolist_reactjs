@@ -1,0 +1,21 @@
+
+@media (max-width: 1200px) {
+    .TodoSearch__config_text_search{
+        width: 16.66666667% !important;
+    }
+    
+    .TodoSearch__config_text_input_search{
+        width: 50.66666667% !important;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .TodoSearch__config_text_search{
+        width: 26.66666667% !important;
+    }
+    
+    .TodoSearch__config_text_input_search{
+        width: 70.66666667% !important;
+    }
+}

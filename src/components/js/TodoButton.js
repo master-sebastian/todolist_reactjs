@@ -2,7 +2,7 @@ import React from "react"
 
 function TodoButton(props){
     return (<>
-        <button onClick={ props.onClick}>{props.text}</button>
+        <button onClick={ props.onClick} className={props.classNameButton}>{props.text}</button>
     </>)   
 }
 

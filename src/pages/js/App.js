@@ -1,6 +1,6 @@
 import React from 'react';
 import  { AppIUContext } from './AppIUContext';
-import { TodoButton } from '../../components/js/TodoButton';
+
 import { TodoCounter } from '../../components/js/TodoCounter';
 import { TodoFormNewItem } from '../../components/js/TodoFormNewItem';
 import { TodoItem } from '../../components/js/TodoItem';
@@ -13,31 +13,37 @@ function App() {
   
   const {
     displayNewItem,
-    changeDisplayNewItem,
     listTodoList
    } = React.useContext(AppIUContext)
-  console.log(displayNewItem)
   return (<>
-    <TodoCounter />
-    <TodoSearch />
-    <TodoButton text="+" onClick={ changeDisplayNewItem }/>
-    
-    {
-      (!displayNewItem)?<></>:<TodoFormNewItem/>
-    }
-    <br></br>
-    <TodoList>
-      {
-        listTodoList.map((element) => {
-          return (<TodoItem 
-                    key={element.id} 
-                    id={element.id} 
-                    text={element.text} 
-                    completed={element.completed}
-                  />)
-        })
-      }
-    </TodoList>
+    <div className='container'>
+      <div className='row'>
+        <div className='offset-2 col-8'>
+          <TodoCounter />
+          <TodoSearch /> 
+          {
+            (!displayNewItem)?<></>:<TodoFormNewItem/>
+          }
+
+          {
+            !displayNewItem && <hr></hr>
+          }
+          <TodoList>
+            {
+              listTodoList.map((element) => {
+                return (<TodoItem 
+                          key={element.id} 
+                          id={element.id} 
+                          text={element.text} 
+                          completed={element.completed}
+                          insertRegister={element.insert_register}
+                        />)
+              })
+            }
+          </TodoList>
+        </div>
+      </div>
+    </div>
   </>);
 }
 

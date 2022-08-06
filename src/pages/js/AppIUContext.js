@@ -93,7 +93,7 @@ function AppIUContextProvider (props) {
             
             const listTodoListOrginal_ = [...listTodoListOrginal].map((element) => ({...element}))
             
-            listTodoListOrginal_.unshift({
+            listTodoListOrginal_.push({
                 id: id + 1, 
                 text: capitalizarPrimeraLetra(text.trim()), 
                 completed: false,
